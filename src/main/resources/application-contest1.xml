@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xt="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <xt:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
+
+    <bean id="main" class="go.it.Main">
+        <property name="employeeControler" ref="employeeControler"/>
+    </bean>
+
+    <bean class="go.it.EmployeeControler" id="employeeControler">
+        <property name="employeeDAO" ref="hEmploeeDAO"/>
+    </bean>
+
+    <bean class="go.it.HEmploeeDAO" id="hEmploeeDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
+
+</beans>
