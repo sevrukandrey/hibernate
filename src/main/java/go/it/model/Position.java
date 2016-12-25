@@ -1,4 +1,4 @@
-package go.it;
+package go.it.model;
 
 /**
  * Created by asevruk on 12/19/2016.

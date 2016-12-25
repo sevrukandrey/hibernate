@@ -1,4 +1,6 @@
-package go.it;
+package go.it.dao;
+
+import go.it.model.Employee;
 
 import java.util.List;
 

@@ -1,5 +1,7 @@
-package go.it;
+package go.it.dao.hibernate;
 
+import go.it.dao.EmployeeDAO;
+import go.it.model.Employee;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,8 +1,12 @@
-package go.it;
+package go.it.controler;
 
+import go.it.dao.EmployeeDAO;
+import go.it.model.Employee;
+import go.it.model.Position;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -11,6 +15,7 @@ import java.util.Set;
 
 
 public class EmployeeControler {
+
     private EmployeeDAO employeeDAO;
 
 
@@ -32,6 +37,11 @@ public class EmployeeControler {
         }
 
 
+    }
+
+    @Transactional
+    public List<Employee> getAllEmployees(){
+        return employeeDAO.getAll();
     }
 
     public void setEmployeeDAO(EmployeeDAO employeeDAO) {

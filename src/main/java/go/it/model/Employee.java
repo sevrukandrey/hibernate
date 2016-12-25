@@ -1,10 +1,9 @@
-package go.it;
+package go.it.model;
 
 
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import javax.sql.DataSource;
 
 /**
  * Created by asevruk on 12/19/2016.
