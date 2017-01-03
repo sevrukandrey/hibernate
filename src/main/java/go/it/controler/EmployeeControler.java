@@ -26,7 +26,7 @@ public class EmployeeControler {
 
         Employee employee = new Employee();
         employee.setId(1l);
-        employee.setName("asd");
+        employee.setName("12");
         employee.setSurname("asdasd");
         employee.setPosition(Position.COOK);
         employee.setPhoneNumber("1111-11-11");

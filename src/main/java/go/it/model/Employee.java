@@ -31,6 +31,18 @@ public class Employee {
     }
 
     @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", position=" + position +
+                ", salary=" + salary +
+                '}';
+    }
+
+    @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (surname != null ? surname.hashCode() : 0);
@@ -43,7 +55,7 @@ public class Employee {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment",strategy = "increment")
-    @Column(name = "id")
+    @Column(name = "employee_id")
     private long id;
 
     @Column(name = "name")

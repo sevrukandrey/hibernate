@@ -2,6 +2,8 @@ package go.it;
 
 import go.it.controler.DishController;
 import go.it.controler.EmployeeControler;
+import go.it.model.Dish;
+import go.it.model.DishCategory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -9,6 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Created by asevruk on 12/19/2016.
  */
 public class Main {
+
 
     private EmployeeControler employeeControler;
     private DishController dishController;
@@ -21,11 +24,17 @@ public class Main {
 
     private void toStart() {
 
-            employeeControler.createEmployee();
+
+           // employeeControler.createEmployee();
+        System.out.println("1");
             dishController.createDish();
 
-            dishController.getAllDish().forEach(System.out::println);
-            employeeControler.getAllEmployees().forEach(System.out::println);
+
+
+
+
+          // dishController.getAllDish().forEach(System.out::println);
+          // employeeControler.getAllEmployees().forEach(System.out::println);
     }
 
     public void setEmployeeControler(EmployeeControler employeeControler) {
@@ -33,6 +42,6 @@ public class Main {
     }
 
     public void setDishController(DishController dishController) {
-        this.dishController = dishController;
-    }
+       this.dishController = dishController;
+   }
 }

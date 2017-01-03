@@ -17,7 +17,7 @@ public class Order {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "id")
+    @Column(name = "order_id")
     private long id;
     @ManyToOne
     @JoinColumn(name = "employer_id")

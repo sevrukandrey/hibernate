@@ -4,17 +4,37 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
-/**
- * Created by Andrew on 25.12.2016.
- */
+
+
+
 @Entity
-@Table(name = "dish")
 public class Dish {
-    public long getId() {
+
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment",strategy = "increment")
+
+    @Column(name = "dish_id")
+    private  int id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "price")
+    private  int price;
+
+    @Column(name = "weight")
+    private int weight;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "dish_category")
+    private DishCategory dishCategory;
+
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -26,19 +46,19 @@ public class Dish {
         this.name = name;
     }
 
-    public Float getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public Float getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(Float weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
@@ -49,22 +69,43 @@ public class Dish {
     public void setDishCategory(DishCategory dishCategory) {
         this.dishCategory = dishCategory;
     }
-
-    @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment",strategy = "increment")
-    @Column(name = "id")
-    private  long id;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "price")
-    private  Float price;
-    @Column(name = "weight")
-    private Float weight;
-    @Column(name = "dish_category")
-    @Enumerated(EnumType.STRING)
-    private DishCategory dishCategory;
-
-
-
 }
+/*
+    CREATE TABLE dish
+        (
+                dish_id numeric NOT NULL,
+                name character varying,
+                price numeric,
+                weight numeric,
+  "'dish_category'" character varying,
+                CONSTRAINT dish_pkey PRIMARY KEY (dish_id)
+)
+
+        CREATE TABLE dish_order
+        (
+        dish_id integer NOT NULL,
+        order_id integer NOT NULL,
+        CONSTRAINT dish_order_dish_id_fkey FOREIGN KEY (dish_id)
+        REFERENCES dish (dish_id) MATCH SIMPLE
+        ON UPDATE NO ACTION ON DELETE NO ACTION,
+        CONSTRAINT dish_order_order_id_fkey FOREIGN KEY (order_id)
+        REFERENCES orders (order_id) MATCH SIMPLE
+        ON UPDATE NO ACTION ON DELETE NO ACTION
+        )
+
+
+
+
+
+        CREATE TABLE orders
+        (
+        order_id serial NOT NULL,
+        employer_id integer,
+        table_number integer,
+        order_date date NOT NULL,
+        CONSTRAINT orders_pkey PRIMARY KEY (order_id),
+        CONSTRAINT orders_employer_id_fkey FOREIGN KEY (employer_id)
+        REFERENCES employee (employee_id) MATCH SIMPLE
+        ON UPDATE NO ACTION ON DELETE NO ACTION
+        )
+*/

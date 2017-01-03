@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xt="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+
+default-autowire="byName">
 
     <xt:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
 
-    <bean id="main" class="go.it.Main">
-        <property name="employeeControler" ref="employeeControler"/>
-    </bean>
+    <bean id="main" class="go.it.Main"/>
 
-    <bean class="go.it.EmployeeControler" id="employeeControler">
-        <property name="employeeDAO" ref="hEmploeeDAO"/>
-    </bean>
+    <bean id="employeeControler" class="go.it.controler.EmployeeControler" />
+    <bean id="dishControler" class="go.it.controler.DishController"/>
 
-    <bean class="go.it.HEmploeeDAO" id="hEmploeeDAO">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+    <bean id="employeeDAO" class="go.it.dao.hibernate.HEmploeeDAO" />
+    <bean id="dishDAO" class="go.it.dao.hibernate.HDishDAO"/>
 
 
 

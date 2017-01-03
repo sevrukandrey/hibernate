@@ -11,6 +11,7 @@ import java.util.List;
  * Created by asevruk on 12/19/2016.
  */
 public class HEmploeeDAO implements EmployeeDAO {
+
     private SessionFactory sessionFactory;
 
     @Transactional

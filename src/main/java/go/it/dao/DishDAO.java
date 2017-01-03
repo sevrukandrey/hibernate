@@ -9,6 +9,6 @@ import java.util.List;
  * Created by Andrew on 25.12.2016.
  */
 public interface DishDAO {
-    void save (Dish dish);
+    void save(Dish dish);
     List<Dish> getAll();
 }

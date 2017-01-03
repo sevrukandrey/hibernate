@@ -12,8 +12,8 @@ default-autowire="byName">
     <bean id="employeeControler" class="go.it.controler.EmployeeControler" />
     <bean id="dishControler" class="go.it.controler.DishController"/>
 
-    <bean class="go.it.dao.hibernate.HEmploeeDAO" id="hEmploeeDAO"/>
-    <bean id="hdishDAO" class="go.it.dao.DishDAO"/>
+    <bean id="employeeDAO" class="go.it.dao.hibernate.HEmploeeDAO" />
+    <bean id="dishDAO" class="go.it.dao.hibernate.HDishDAO"/>
 
 
 
