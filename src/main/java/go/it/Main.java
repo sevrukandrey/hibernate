@@ -17,7 +17,7 @@ public class Main {
     private DishController dishController;
 
     public static void main(String[] args) {
-     ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-contest1.xml","hibernate-contest.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-contest1.xml", "hibernate-contest.xml");
         Main main = applicationContext.getBean(Main.class);
         main.toStart();
     }
@@ -25,16 +25,12 @@ public class Main {
     private void toStart() {
 
 
-           // employeeControler.createEmployee();
-        System.out.println("1");
-            dishController.createDish();
+        // employeeControler.createEmployee();
 
+        dishController.createDish();
 
-
-
-
-          // dishController.getAllDish().forEach(System.out::println);
-          // employeeControler.getAllEmployees().forEach(System.out::println);
+        // dishController.getAllDish().forEach(System.out::println);
+        // employeeControler.getAllEmployees().forEach(System.out::println);
     }
 
     public void setEmployeeControler(EmployeeControler employeeControler) {
@@ -42,6 +38,6 @@ public class Main {
     }
 
     public void setDishController(DishController dishController) {
-       this.dishController = dishController;
-   }
+        this.dishController = dishController;
+    }
 }

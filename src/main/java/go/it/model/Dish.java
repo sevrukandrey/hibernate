@@ -10,65 +10,46 @@ import javax.persistence.*;
 @Entity
 public class Dish {
 
+    public Dish(int id, String name, int price, int weight, DishCategory dishCategory) {
+        this.id=id;
+        this.name = name;
+        this.price = price;
+        this.weight = weight;
+        this.dishCategory = dishCategory;
+    }
+
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", weight=" + weight +
+                ", dishCategory=" + dishCategory +
+                '}';
+    }
+
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment",strategy = "increment")
 
     @Column(name = "dish_id")
-    private  int id;
+    public   int id;
 
     @Column(name = "name")
-    private String name;
+    public String name;
 
     @Column(name = "price")
-    private  int price;
+    public  int price;
 
     @Column(name = "weight")
-    private int weight;
+    public int weight;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "dish_category")
-    private DishCategory dishCategory;
+    public DishCategory dishCategory;
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public DishCategory getDishCategory() {
-        return dishCategory;
-    }
-
-    public void setDishCategory(DishCategory dishCategory) {
-        this.dishCategory = dishCategory;
-    }
 }
 /*
     CREATE TABLE dish

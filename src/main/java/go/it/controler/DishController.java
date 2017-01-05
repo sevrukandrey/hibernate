@@ -9,6 +9,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static go.it.model.DishCategory.MAINA;
+
 /**
  * Created by Andrew on 25.12.2016.
  */
@@ -16,22 +18,12 @@ public class DishController {
 
 
     private DishDAO dishDAO;
-
+    @Transactional
     public void createDish() {
 
-        System.out.println("1");
-        Dish sup = new Dish();
-        sup.setId(1);
-        sup.setName("sup");
-        //sup.setDishCategory(DishCategory.MAINA);
-        sup.setPrice(6);
-        sup.setWeight(5);
-        System.out.println("1");
+       Dish sup = new Dish(1,"a",1,1,DishCategory.MAINA);
 
-
-
-
-       // Set<Dish> dishes = new HashSet<Dish>(dishDAO.getAll());
+        // Set<Dish> dishes = new HashSet<Dish>(dishDAO.getAll());
 
        // if (!dishes.contains(sup)) {
             dishDAO.save(sup);
