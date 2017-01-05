@@ -10,11 +10,87 @@ import javax.persistence.*;
 @Entity
 public class Dish {
 
-    public Dish(int id, String name, int price, int weight, DishCategory dishCategory) {
-        this.id=id;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Dish dish = (Dish) o;
+
+        if (price != dish.price) return false;
+        if (weight != dish.weight) return false;
+        if (name != null ? !name.equals(dish.name) : dish.name != null) return false;
+        return dishCategory == dish.dishCategory;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + price;
+        result = 31 * result + weight;
+        result = 31 * result + (dishCategory != null ? dishCategory.hashCode() : 0);
+        return result;
+    }
+
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment",strategy = "increment")
+
+    @Column(name = "dish_id")
+    private    int id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "price")
+    private  int price;
+
+    @Column(name = "weight")
+    private int weight;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "dish_category")
+    private DishCategory dishCategory;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public DishCategory getDishCategory() {
+        return dishCategory;
+    }
+
+    public void setDishCategory(DishCategory dishCategory) {
         this.dishCategory = dishCategory;
     }
 
@@ -29,25 +105,6 @@ public class Dish {
                 '}';
     }
 
-    @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment",strategy = "increment")
-
-    @Column(name = "dish_id")
-    public   int id;
-
-    @Column(name = "name")
-    public String name;
-
-    @Column(name = "price")
-    public  int price;
-
-    @Column(name = "weight")
-    public int weight;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "dish_category")
-    public DishCategory dishCategory;
 
 
 }

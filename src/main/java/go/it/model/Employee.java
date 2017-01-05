@@ -12,6 +12,29 @@ import javax.persistence.*;
 @Table(name = "employee")
 
 public class Employee {
+
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment",strategy = "increment")
+    @Column(name = "employee_id")
+    private long id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "surname")
+    private String surname;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "position")
+    private Position position;
+
+    @Column(name = "salary")
+    private Float salary;
+
     @Override
     public boolean equals(Object o) {
 
@@ -52,30 +75,9 @@ public class Employee {
         return result;
     }
 
-    @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment",strategy = "increment")
-    @Column(name = "employee_id")
-    private long id;
-
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "surname")
-    private String surname;
-
-    @Column(name = "phone_number")
-    private String phoneNumber;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "position")
-    private Position position;
-
-    @Column(name = "salary")
-    private Float salary;
 
 
-   // private DataSource dataSource;
+
 
     public long getId() {
         return id;

@@ -15,10 +15,7 @@ import java.util.Set;
 
 
 public class EmployeeControler {
-
     private EmployeeDAO employeeDAO;
-
-
     @Transactional
     public void createEmployee(){
 
@@ -35,8 +32,6 @@ public class EmployeeControler {
             employeeDAO.save(employee);
 
         }
-
-
     }
 
     @Transactional

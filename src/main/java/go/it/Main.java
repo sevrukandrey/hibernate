@@ -25,12 +25,11 @@ public class Main {
     private void toStart() {
 
 
-        // employeeControler.createEmployee();
-
+       // employeeControler.createEmployee();
         dishController.createDish();
 
-        // dishController.getAllDish().forEach(System.out::println);
-        // employeeControler.getAllEmployees().forEach(System.out::println);
+        dishController.getAllDish().forEach(System.out::println);
+        employeeControler.getAllEmployees().forEach(System.out::println);
     }
 
     public void setEmployeeControler(EmployeeControler employeeControler) {

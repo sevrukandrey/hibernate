@@ -15,24 +15,27 @@ import static go.it.model.DishCategory.MAINA;
  * Created by Andrew on 25.12.2016.
  */
 public class DishController {
-
-
     private DishDAO dishDAO;
+
     @Transactional
     public void createDish() {
+        Set<Dish> dishes = new HashSet<Dish>(dishDAO.getAll());
+        Dish sup = new Dish();
+        sup.setName("salat");
+        sup.setId(1);
+        sup.setDishCategory(MAINA);
+        sup.setPrice(1);
+        sup.setWeight(2);
 
-       Dish sup = new Dish(1,"a",1,1,DishCategory.MAINA);
-
-        // Set<Dish> dishes = new HashSet<Dish>(dishDAO.getAll());
-
-       // if (!dishes.contains(sup)) {
+        if (!dishes.contains(sup)) {
             dishDAO.save(sup);
-      //  }
+      }
     }
-//@Transactional
-  //  public List<Dish> getAllDish(){
-     //   return dishDAO.getAll();
-  //  }
+
+    @Transactional
+    public List<Dish> getAllDish(){
+      return dishDAO.getAll();
+   }
 
     public void setDishDAO(DishDAO dishDAO) {
         this.dishDAO = dishDAO;
