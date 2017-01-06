@@ -1,7 +1,7 @@
 package go.it.dao.hibernate;
 
 import go.it.dao.OrderDAO;
-import go.it.model.Order;
+import go.it.model.Orders;
 import org.hibernate.SessionFactory;
 
 import java.util.List;
@@ -13,13 +13,13 @@ public class HOrderDAO implements OrderDAO {
     private SessionFactory sessionFactory;
 
     @Override
-    public void save(Order order) {
+    public void save(Orders order) {
         sessionFactory.getCurrentSession().save(order);
     }
 
     @Override
-    public List<Order> getAll() {
-        return sessionFactory.getCurrentSession().createQuery("select o from Order o").list();
+    public List<Orders> getAll() {
+        return sessionFactory.getCurrentSession().createQuery("select o from Orders o").list();
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

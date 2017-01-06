@@ -11,4 +11,5 @@ import java.util.List;
 public interface DishDAO {
     void save(Dish dish);
     List<Dish> getAll();
+    Dish findByName(String name);
 }

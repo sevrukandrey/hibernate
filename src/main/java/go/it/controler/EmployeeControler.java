@@ -16,16 +16,17 @@ import java.util.Set;
 
 public class EmployeeControler {
     private EmployeeDAO employeeDAO;
+
     @Transactional
     public void createEmployee(){
 
         Set<Employee> allEmployee = new HashSet<Employee>(employeeDAO.getAll());
 
         Employee employee = new Employee();
-        employee.setId(1l);
-        employee.setName("12");
-        employee.setSurname("asdasd");
-        employee.setPosition(Position.COOK);
+        employee.setId(2l);
+        employee.setName("sara");
+        employee.setSurname("ss");
+        employee.setPosition(Position.WAITER);
         employee.setPhoneNumber("1111-11-11");
         employee.setSalary(2323.00f);
         if (!allEmployee.contains(employee)){
@@ -37,6 +38,11 @@ public class EmployeeControler {
     @Transactional
     public List<Employee> getAllEmployees(){
         return employeeDAO.getAll();
+    }
+
+    @Transactional
+    public Employee getEmployeeByName(String name){
+        return employeeDAO.findByName(name);
     }
 
     public void setEmployeeDAO(EmployeeDAO employeeDAO) {

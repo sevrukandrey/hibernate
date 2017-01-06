@@ -2,7 +2,9 @@ package go.it.dao.hibernate;
 
 import go.it.dao.EmployeeDAO;
 import go.it.model.Employee;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -28,6 +30,7 @@ public class HEmploeeDAO implements EmployeeDAO {
     }
 
     public List<Employee> getAll() {
+
         return  sessionFactory.getCurrentSession().createQuery("select e from Employee e ").list();
 
     }
@@ -35,6 +38,14 @@ public class HEmploeeDAO implements EmployeeDAO {
     public void remove(Employee employee) {
 
         sessionFactory.getCurrentSession().delete(employee);
+    }
+
+    @Override
+    public Employee findByName(String name) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select e from Employee e WHERE e.name like :name");
+        query.setParameter("name", name);
+        return (Employee) query.uniqueResult();
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

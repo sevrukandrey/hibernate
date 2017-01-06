@@ -2,7 +2,9 @@ package go.it.dao.hibernate;
 
 import go.it.dao.DishDAO;
 import go.it.model.Dish;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -22,6 +24,14 @@ public class HDishDAO implements DishDAO {
     @Override
     public List<Dish> getAll() {
         return sessionFactory.getCurrentSession().createQuery("select d from Dish d").list();
+    }
+
+    @Override
+    public Dish findByName(String name) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query =session.createQuery("select d from Dish d where d.name like:name");
+        query.setParameter("name",name);
+        return (Dish) query.uniqueResult();
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

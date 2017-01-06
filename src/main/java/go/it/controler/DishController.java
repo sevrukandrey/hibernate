@@ -19,6 +19,7 @@ public class DishController {
 
     @Transactional
     public void createDish() {
+
         Set<Dish> dishes = new HashSet<Dish>(dishDAO.getAll());
         Dish sup = new Dish();
         sup.setName("salat");
@@ -36,6 +37,11 @@ public class DishController {
     public List<Dish> getAllDish(){
       return dishDAO.getAll();
    }
+
+    @Transactional
+    public Dish getDishByName(String name){
+        return dishDAO.findByName(name);
+    }
 
     public void setDishDAO(DishDAO dishDAO) {
         this.dishDAO = dishDAO;

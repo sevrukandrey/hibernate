@@ -13,6 +13,7 @@ public interface EmployeeDAO {
     Employee getEmployee(long id);
     List<Employee> getAll();
     void remove(Employee employee);
+    Employee findByName(String name);
 
 
 }
