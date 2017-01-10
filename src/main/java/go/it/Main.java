@@ -34,33 +34,32 @@ public class Main {
         dishes.add("salat");
 
 
-
-
         //employeeControler.createEmployee();
 
-    //    System.out.println(  employeeControler.getAllEmployees());
+        //    System.out.println(  employeeControler.getAllEmployees());
 
-      //  System.out.println( employeeControler.getEmployeeByName("sara"));
+        //  System.out.println( employeeControler.getEmployeeByName("sara"));
 
-       // employeeControler.createEmployee();
-     //   dishController.createDish();
-            orderController.createOrder("sara",dishes);
+        // employeeControler.createEmployee();
+        //   dishController.createDish();
 
-       // System.out.println(employeeControler.getAllEmployees());
-     //   System.out.println(dishController.getAllDish());
+        orderController.createOrder("sara", dishes);
+
+        // System.out.println(employeeControler.getAllEmployees());
+        //   System.out.println(dishController.getAllDish());
 
         //orderController.createOrder("12",dishes);
-       // orderController.getAllOrders();
+        // orderController.getAllOrders();
 
 
-       //
+        //
 
         //System.out.println(employeeControler.getEmployeeByName("12"));
 
-       //dishController.createDish();
-       // System.out.println(dishController.getDishByName("salat"));
-       // dishController.getAllDish().forEach(System.out::println);
-       // employeeControler.getAllEmployees().forEach(System.out::println);
+        //dishController.createDish();
+        // System.out.println(dishController.getDishByName("salat"));
+        // dishController.getAllDish().forEach(System.out::println);
+        // employeeControler.getAllEmployees().forEach(System.out::println);
     }
 
     public void setEmployeeControler(EmployeeControler employeeControler) {

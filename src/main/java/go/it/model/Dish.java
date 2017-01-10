@@ -10,6 +10,26 @@ import javax.persistence.*;
 @Entity
 public class Dish {
 
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment",strategy = "increment")
+
+    @Column(name = "dish_id")
+    private    int id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "price")
+    private  int price;
+
+    @Column(name = "weight")
+    private int weight;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "dish_category")
+    private DishCategory dishCategory;
+
 
     @Override
     public boolean equals(Object o) {
@@ -34,25 +54,7 @@ public class Dish {
         return result;
     }
 
-    @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment",strategy = "increment")
 
-    @Column(name = "dish_id")
-    private    int id;
-
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "price")
-    private  int price;
-
-    @Column(name = "weight")
-    private int weight;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "dish_category")
-    private DishCategory dishCategory;
 
     public int getId() {
         return id;
